@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "de.sba.discordbot.token",
+      "type": "java.lang.String",
+      "description": "Description for de.sba.discordbot.token."
+  }
+] }
