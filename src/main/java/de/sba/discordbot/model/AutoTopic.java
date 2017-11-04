@@ -1,12 +1,10 @@
 package de.sba.discordbot.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(uniqueConstraints = @UniqueConstraint(name = "UK_AUTO_TOPIC", columnNames = {"dayofmonth", "month", "topic"}))
 public class AutoTopic implements Serializable {
     private Long id;
     private int dayOfMonth;

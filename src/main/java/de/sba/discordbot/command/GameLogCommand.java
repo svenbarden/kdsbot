@@ -37,7 +37,13 @@ public class GameLogCommand extends Command {
                             Member gameMember = commandEvent.getGuild().getMemberById(gameLog.getUser());
                             long since = System.currentTimeMillis() - gameLog.getStart().getTime();
                             long hours = TimeUnit.MILLISECONDS.toHours(since);
-                            commandEvent.reply(String.format("%s süchtelt seit %s %s", gameMember.getEffectiveName(), gameLog.getStart(), gameLog.getGame()));
+                            since -= TimeUnit.HOURS.toMillis(hours);
+                            long minutes = TimeUnit.MILLISECONDS.toMinutes(since);
+                            since -= TimeUnit.MINUTES.toMillis(minutes);
+                            long seconds = TimeUnit.MILLISECONDS.toSeconds(since);
+                            commandEvent.reply(String.format("%s süchtelt seit %d:%d:%d %s",
+                                    gameMember.getEffectiveName(),
+                                    hours, minutes, seconds, gameLog.getGame()));
                         }
                     });
                     break;

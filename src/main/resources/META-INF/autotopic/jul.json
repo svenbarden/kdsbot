@@ -1,0 +1,110 @@
+[
+  {
+    "dayOfMonth" : "2",
+    "month" : "Juli",
+    "type": "Franken",
+    "topic" : "Tag der Franken"
+  },
+  {
+    "dayOfMonth" : "4",
+    "month" : "Juli",
+    "type": "christlich",
+    "topic" : "Ulrichstag"
+  },
+  {
+    "dayOfMonth" : "6",
+    "month" : "Juli",
+    "type": "international",
+    "topic" : "Internationaler Tag des Kusses"
+  },
+  {
+    "dayOfMonth" : "8",
+    "month" : "Juli",
+    "type": "christlich",
+    "topic" : "Kilianstag"
+  },
+  {
+    "dayOfMonth" : "11",
+    "month" : "Juli",
+    "type": "international",
+    "topic" : "Weltbevölkerungstag"
+  },
+  {
+    "dayOfMonth" : "11",
+    "month" : "Juli",
+    "type": "international",
+    "topic" : "Tag des Genozid in Srebrenica"
+  },
+  {
+    "dayOfMonth" : "15",
+    "month" : "Juli",
+    "type": "christlich",
+    "topic" : "Zwölfbotentag"
+  },
+  {
+    "dayOfMonth" : "16",
+    "month" : "Juli",
+    "type": "International",
+    "topic" : "Weltschlangentag[86]"
+  },
+  {
+    "dayOfMonth" : "17",
+    "month" : "Juli",
+    "type": "International",
+    "topic" : "World Day for International Justice"
+  },
+  {
+    "dayOfMonth" : "18",
+    "month" : "Juli",
+    "type": "International",
+    "topic" : "Nelson-Mandela-Tag"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "Juli",
+    "type": "Deutschland",
+    "topic" : "Gedenktag zum Attentat vom 20. Juli 1944"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "Juli",
+    "type": "international",
+    "topic" : "Weltraumforschungstag"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "Juli",
+    "type": "Deutschland",
+    "topic" : "Nationaler Gedenktag für verstorbene Drogenabhängige"
+  },
+  {
+    "dayOfMonth" : "25",
+    "month" : "Juli",
+    "type": "christlich",
+    "topic" : "Jakobstag (Apostel Jakobus der Ältere)"
+  },
+  {
+    "dayOfMonth" : "26",
+    "month" : "Juli",
+    "type": "christlich",
+    "topic" : "Annentag"
+  },
+  {
+    "dayOfMonth" : "26",
+    "month" : "Juli",
+    "type": "Esperantosprecher",
+    "topic" : "Esperanto-Tag"
+  },
+  {
+    "dayOfMonth" : "28",
+    "month" : "Juli",
+    "type": "international",
+    "topic" : "Welt-Hepatitis-Tag (World Hepatitis Day)"
+  },
+  {
+    "dayOfMonth" : "30",
+    "month" : "Juli",
+    "type": "international",
+    "topic" : "Internationaler Tag der Freundschaft"
+  }
+]

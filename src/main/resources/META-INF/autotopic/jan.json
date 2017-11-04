@@ -1,0 +1,104 @@
+[
+  {
+    "dayOfMonth" : "1",
+    "month" : "Januar",
+    "type": "Gregorianischer Kalender",
+    "topic" : "Neujahrstag"
+  },
+  {
+    "dayOfMonth" : "1",
+    "month" : "Januar",
+    "type": "römisch-katholisch",
+    "topic" : "Weltfriedenstag"
+  },
+  {
+    "dayOfMonth" : "4",
+    "month" : "Januar",
+    "type": "international",
+    "topic" : "Welt-Braille-Tag"
+  },
+  {
+    "dayOfMonth" : "6",
+    "month" : "Januar",
+    "type": "christlich",
+    "topic" : "Erscheinung des Herrn/Epiphanias/Dreikönigsfest"
+  },
+  {
+    "dayOfMonth" : "6",
+    "month" : "Januar",
+    "type": "römisch-katholisch",
+    "topic" : "Afrikatag"
+  },
+  {
+    "dayOfMonth" : "7",
+    "month" : "Januar",
+    "type": "christlich",
+    "topic" : "Weihnachten (julianisch)"
+  },
+  {
+    "dayOfMonth" : "10",
+    "month" : "Januar",
+    "type": "International",
+    "topic" : "Tag der Blockflöte"
+  },
+  {
+    "dayOfMonth" : "17",
+    "month" : "Januar",
+    "type": "International",
+    "topic" : "Tag der italienischen Küche"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "Januar",
+    "type": "international",
+    "topic" : "Weltknuddeltag oder Weltkuscheltag (National Hug Day)"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "Januar",
+    "type": "international",
+    "topic" : "Internationaler Tag der Jogginghose oder Internationaler Jogginghosentag (International Sweatpantsday)"
+  },
+  {
+    "dayOfMonth" : "22",
+    "month" : "Januar",
+    "type": "Deutschland Frankreich",
+    "topic" : "Deutsch-Französischer Tag"
+  },
+  {
+    "dayOfMonth" : "23",
+    "month" : "Januar",
+    "type": "Deutschland",
+    "topic" : "Tag der Handballer"
+  },
+  {
+    "dayOfMonth" : "24",
+    "month" : "Januar",
+    "type": "römisch-katholisch",
+    "topic" : "Botschaft zum Welttag der sozialen Kommunikationsmittel"
+  },
+  {
+    "dayOfMonth" : "26",
+    "month" : "Januar",
+    "type": "international",
+    "topic" : "International Customs Day (Tag der Zöllner/Zollunion)"
+  },
+  {
+    "dayOfMonth" : "27",
+    "month" : "Januar",
+    "type": "international",
+    "topic" : "Tag des Gedenkens an die Opfer des Nationalsozialismus (Holocaust-Gedenktag)"
+  },
+  {
+    "dayOfMonth" : "28",
+    "month" : "Januar",
+    "type": "Europa",
+    "topic" : "Europäischer Datenschutztag"
+  },
+  {
+    "dayOfMonth" : "31",
+    "month" : "Januar",
+    "type": "Österreich",
+    "topic" : "Tag der Straßenkinder"
+  }
+]

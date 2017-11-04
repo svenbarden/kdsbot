@@ -1,5 +1,6 @@
 package de.sba.discordbot.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -32,6 +33,7 @@ public class GameLog implements Serializable {
         this.game = game;
     }
 
+    @Column(name = "user_")
     public String getUser() {
         return user;
     }
@@ -48,6 +50,7 @@ public class GameLog implements Serializable {
         this.start = start;
     }
 
+    @Column(name = "end_")
     public Timestamp getEnd() {
         return end;
     }

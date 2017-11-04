@@ -1,0 +1,21 @@
+logging:
+  level:
+    de:
+      sba: trace
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:file:E:\\dev\\database\\h2\\discordbot\\db
+de:
+  sba:
+    discordbot:
+      nic-names:
+        - Best Bot EU
+        - Topix Bot Extended
+      topic:
+        auto-topic-targets:
+          - Der Kult: [general]
+          - sba: [general]

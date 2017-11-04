@@ -5,7 +5,7 @@
 
 	<groupId>de.sba</groupId>
 	<artifactId>discord-bot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2_10-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>discord-bot</name>
@@ -71,7 +71,53 @@
 			<artifactId>json</artifactId>
 			<version>20170516</version>
 		</dependency>
+
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>postgres</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.postgresql</groupId>
+					<artifactId>postgresql</artifactId>
+					<version>42.1.4.jre7</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>

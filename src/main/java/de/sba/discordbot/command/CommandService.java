@@ -1,8 +1,8 @@
 package de.sba.discordbot.command;
 
 import com.jagrosh.jdautilities.commandclient.CommandClientBuilder;
-import de.sba.discordbot.PersistenceService;
 import de.sba.discordbot.listener.GameLogService;
+import de.sba.discordbot.service.TopicService;
 import net.dv8tion.jda.core.JDA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,17 +12,17 @@ import javax.annotation.PostConstruct;
 
 @Service
 public class CommandService {
-    private PersistenceService persistenceService;
     private GameLogService gameLogService;
+    private TopicService topicService;
     private JDA client;
     @Value("${de.sba.discordbot.ownerId}")
     private String ownerId;
 
 
     @Autowired
-    public CommandService(PersistenceService persistenceService, GameLogService gameLogService, JDA client) {
-        this.persistenceService = persistenceService;
+    public CommandService(GameLogService gameLogService, TopicService topicService, JDA client) {
         this.gameLogService = gameLogService;
+        this.topicService = topicService;
         this.client = client;
     }
 
@@ -33,7 +33,7 @@ public class CommandService {
         commandClient.setOwnerId(ownerId);
         commandClient.setPrefix("!");
 
-        commandClient.addCommand(new TopicCommand(persistenceService));
+        commandClient.addCommand(new TopicCommand(topicService));
         commandClient.addCommand(new GameLogCommand(gameLogService));
         client.addEventListener(commandClient.build());
     }

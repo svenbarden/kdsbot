@@ -1,0 +1,122 @@
+[
+  {
+    "dayOfMonth" : "2",
+    "month" : "Februar",
+    "type": "christlich",
+    "topic" : "Darstellung des Herrn"
+  },
+  {
+    "dayOfMonth" : "2",
+    "month" : "Februar",
+    "type": "international",
+    "topic" : "Welttag der Feuchtgebiete"
+  },
+  {
+    "dayOfMonth" : "4",
+    "month" : "Februar",
+    "type": "international",
+    "topic" : "Weltkrebstag (World Cancer Day)"
+  },
+  {
+    "dayOfMonth" : "4",
+    "month" : "Februar",
+    "type": "Deutschland",
+    "topic" : "Tag der Betrieblichen Mitbestimmung"
+  },
+  {
+    "dayOfMonth" : "6",
+    "month" : "Februar",
+    "type": "international",
+    "topic" : "Internationaler Tag gegen weibliche Genitalverstümmelung (International Day of Zero Tolerance to Female Genital Mutilation)"
+  },
+  {
+    "dayOfMonth" : "10",
+    "month" : "Februar",
+    "type": "Deutschland",
+    "topic" : "Tag der Kinderhospizarbeit"
+  },
+  {
+    "dayOfMonth" : "11",
+    "month" : "Februar",
+    "type": "römisch-katholisch",
+    "topic" : "Welttag der Kranken"
+  },
+  {
+    "dayOfMonth" : "11",
+    "month" : "Februar",
+    "type": "Europa",
+    "topic" : "Europäischer Tag des Notrufs 112"
+  },
+  {
+    "dayOfMonth" : "12",
+    "month" : "Februar",
+    "type": "international",
+    "topic" : "Internationaler Darwin-Tag"
+  },
+  {
+    "dayOfMonth" : "12",
+    "month" : "Februar",
+    "type": "international",
+    "topic" : "Internationaler Tag gegen den Einsatz von Kindersoldaten"
+  },
+  {
+    "dayOfMonth" : "13",
+    "month" : "Februar",
+    "type": "international",
+    "topic" : "Welttag des Radios"
+  },
+  {
+    "dayOfMonth" : "14",
+    "month" : "Februar",
+    "type": "christlich",
+    "topic" : "St.-Valentinstag"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "Februar",
+    "type": "international",
+    "topic" : "Welttag der Sozialen Gerechtigkeit[19]"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "Februar",
+    "type": "international",
+    "topic" : "Internationaler Tag der Muttersprache"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "Februar",
+    "type": "international",
+    "topic" : "Weltgästeführertag"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "Februar",
+    "type": "Nordfriesland",
+    "topic" : "Biikebrennen"
+  },
+  {
+    "dayOfMonth" : "22",
+    "month" : "Februar",
+    "type": "christlich",
+    "topic" : "Peterstag"
+  },
+  {
+    "dayOfMonth" : "22",
+    "month" : "Februar",
+    "type": "Pfadfinder",
+    "topic" : "Thinking Day"
+  },
+  {
+    "dayOfMonth" : "27",
+    "month" : "Februar",
+    "type": "International",
+    "topic" : "Welttag der Eisbären"
+  },
+  {
+    "dayOfMonth" : "28",
+    "month" : "Februar",
+    "type": "christlich",
+    "topic" : "Romanustag"
+  }
+]

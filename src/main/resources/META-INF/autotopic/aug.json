@@ -1,0 +1,140 @@
+[
+  {
+    "dayOfMonth" : "5",
+    "month" : "August",
+    "type": "römisch-katholisch",
+    "topic" : "Maria Schnee"
+  },
+  {
+    "dayOfMonth" : "6",
+    "month" : "August",
+    "type": "international",
+    "topic" : "Gedenktag an Atombombenabwurf auf Hiroshima 1945"
+  },
+  {
+    "dayOfMonth" : "6",
+    "month" : "August",
+    "type": "christlich",
+    "topic" : "Verklärung des Herrn"
+  },
+  {
+    "dayOfMonth" : "8",
+    "month" : "August",
+    "type": "Deutschland",
+    "topic" : "Augsburger Friedensfest"
+  },
+  {
+    "dayOfMonth" : "8",
+    "month" : "August",
+    "type": "International",
+    "topic" : "Weltkatzentag"
+  },
+  {
+    "dayOfMonth" : "8",
+    "month" : "August",
+    "type": "römisch-katholisch",
+    "topic" : "Dominikustag"
+  },
+  {
+    "dayOfMonth" : "9",
+    "month" : "August",
+    "type": "international",
+    "topic" : "Internationaler Tag der autochthonen Bevölkerungsgruppen der Welt"
+  },
+  {
+    "dayOfMonth" : "10",
+    "month" : "August",
+    "type": "römisch-katholisch",
+    "topic" : "Laurentiustag"
+  },
+  {
+    "dayOfMonth" : "11",
+    "month" : "August",
+    "type": "Deutschland",
+    "topic" : "Verfassungstag (Weimarer Republik)"
+  },
+  {
+    "dayOfMonth" : "12",
+    "month" : "August",
+    "type": "international",
+    "topic" : "Internationaler Tag der Jugend"
+  },
+  {
+    "dayOfMonth" : "13",
+    "month" : "August",
+    "type": "international",
+    "topic" : "Internationaler Linkshändertag"
+  },
+  {
+    "dayOfMonth" : "15",
+    "month" : "August",
+    "type": "international",
+    "topic" : "Welttag des Panama-Kanals"
+  },
+  {
+    "dayOfMonth" : "15",
+    "month" : "August",
+    "type": "römisch-katholisch",
+    "topic" : "Mariä Himmelfahrt"
+  },
+  {
+    "dayOfMonth" : "18",
+    "month" : "August",
+    "type": "Deutschland",
+    "topic" : "Tag der Bürgerbeteiligung"
+  },
+  {
+    "dayOfMonth" : "19",
+    "month" : "August",
+    "type": "international",
+    "topic" : "Welttag der humanitären Hilfe"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "August",
+    "type": "international",
+    "topic" : "Welt Pferdetag"
+  },
+  {
+    "dayOfMonth" : "22",
+    "month" : "August",
+    "type": "römisch-katholisch",
+    "topic" : "Maria Königin"
+  },
+  {
+    "dayOfMonth" : "23",
+    "month" : "August",
+    "type": "Europa",
+    "topic" : "Europäischer Tag des Gedenkens an die Opfer von Stalinismus und Nationalsozialismus"
+  },
+  {
+    "dayOfMonth" : "25",
+    "month" : "August",
+    "type": "International",
+    "topic" : "WeltTofuTag"
+  },
+  {
+    "dayOfMonth" : "28",
+    "month" : "August",
+    "type": "Deutschland",
+    "topic" : "Tag der Russlanddeutschen"
+  },
+  {
+    "dayOfMonth" : "29",
+    "month" : "August",
+    "type": "International",
+    "topic" : "Internationaler Tag gegen Nuklearversuche"
+  },
+  {
+    "dayOfMonth" : "30",
+    "month" : "August",
+    "type": "international",
+    "topic" : "Internationaler Tag der Verschwundenen"
+  },
+  {
+    "dayOfMonth" : "30",
+    "month" : "August",
+    "type": "Deutschland",
+    "topic" : "Gedenktag für die Todesopfer in Abschiebungshaft"
+  }
+]

@@ -1,0 +1,212 @@
+[
+  {
+    "dayOfMonth" : "1",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Zero Discrimination Day[26]"
+  },
+  {
+    "dayOfMonth" : "3",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Tag des Artenschutzes"
+  },
+  {
+    "dayOfMonth" : "3",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Welttag des Hörens[27]"
+  },
+  {
+    "dayOfMonth" : "6",
+    "month" : "März",
+    "type": "Europa",
+    "topic" : "Europäischer Tag der Logopädie"
+  },
+  {
+    "dayOfMonth" : "7",
+    "month" : "März",
+    "type": "Deutschland",
+    "topic" : "Tag der gesunden Ernährung"
+  },
+  {
+    "dayOfMonth" : "8",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Internationaler Frauentag (Weltfrauentag)"
+  },
+  {
+    "dayOfMonth" : "12",
+    "month" : "März",
+    "type": "christlich",
+    "topic" : "Gregorstag"
+  },
+  {
+    "dayOfMonth" : "14",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Internationaler Aktionstag gegen Staudämme (Weltstaudammtag)"
+  },
+  {
+    "dayOfMonth" : "14",
+    "month" : "März",
+    "type": "Freunde der Zahl Pi",
+    "topic" : "Pi-Tag"
+  },
+  {
+    "dayOfMonth" : "15",
+    "month" : "März",
+    "type": "International / Europa",
+    "topic" : "Weltverbrauchertag / Europäischer Tag des Verbrauchers"
+  },
+  {
+    "dayOfMonth" : "15",
+    "month" : "März",
+    "type": "Deutschland",
+    "topic" : "Tag der Rückengesundheit"
+  },
+  {
+    "dayOfMonth" : "18",
+    "month" : "März",
+    "type": "Deutschland",
+    "topic" : "Bundesweiter Aktionstag für die Freiheit der politischen Gefangenen"
+  },
+  {
+    "dayOfMonth" : "19",
+    "month" : "März",
+    "type": "christlich",
+    "topic" : "Joseftag"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Internationaler Kinder- und Jugendtheatertag"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "März",
+    "type": "international",
+    "topic" : "International Day of Happiness[29] (Internationaler Tag des Glücks)[30] Weltglückstag"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Weltgeschichtentag"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Welt-Mundgesundheitstag"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Internationaler Tag des Puppenspiels"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Welttag gegen Rassismus (Internationaler Tag gegen Rassismus)"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Internationaler Tag des Waldes"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Welttag der Hauswirtschaft"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Welttag der Poesie"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Welt-Down-Syndrom-Tag"
+  },
+  {
+    "dayOfMonth" : "22",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Weltwassertag"
+  },
+  {
+    "dayOfMonth" : "22",
+    "month" : "März",
+    "type": "Deutschland",
+    "topic" : "Tag der Kriminalitätsopfer"
+  },
+  {
+    "dayOfMonth" : "23",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Welttag der Meteorologie (Weltwettertag)"
+  },
+  {
+    "dayOfMonth" : "24",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Welttuberkulosetag"
+  },
+  {
+    "dayOfMonth" : "24",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Internationaler Tag für das Recht auf Wahrheit über schwere Menschenrechtsverletzungen und für die Würde der Opfer[32]"
+  },
+  {
+    "dayOfMonth" : "25",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Internationaler Tag des Gedenkens an die Opfer der Sklaverei und des transatlantischen Sklavenhandels"
+  },
+  {
+    "dayOfMonth" : "25",
+    "month" : "März",
+    "type": "christlich",
+    "topic" : "Verkündigung des Herrn"
+  },
+  {
+    "dayOfMonth" : "26",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Purple Day"
+  },
+  {
+    "dayOfMonth" : "27",
+    "month" : "März",
+    "type": "international",
+    "topic" : "Welttag des Theaters"
+  },
+  {
+    "dayOfMonth" : "27",
+    "month" : "März",
+    "type": "christlich",
+    "topic" : "Rupertstag"
+  },
+  {
+    "dayOfMonth" : "28",
+    "month" : "März",
+    "type": "International",
+    "topic" : "(Ehren)Tag des Unkrauts"
+  },
+  {
+    "dayOfMonth" : "31",
+    "month" : "März",
+    "type": "international",
+    "topic" : "World Backup Day"
+  }
+]

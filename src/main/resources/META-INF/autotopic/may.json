@@ -1,0 +1,248 @@
+[
+  {
+    "dayOfMonth" : "1",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Tag der Arbeit"
+  },
+  {
+    "dayOfMonth" : "1",
+    "month" : "Mai",
+    "type": "römisch-katholisch, Bayern",
+    "topic" : "Hochfest der Patrona Bavariae"
+  },
+  {
+    "dayOfMonth" : "2",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Remembrance & Resistance Tag"
+  },
+  {
+    "dayOfMonth" : "3",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Tag des Waldkindergartens"
+  },
+  {
+    "dayOfMonth" : "3",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Tag der Pressefreiheit"
+  },
+  {
+    "dayOfMonth" : "4",
+    "month" : "Mai",
+    "type": "weltweit",
+    "topic" : "Star-Wars-Tag"
+  },
+  {
+    "dayOfMonth" : "4",
+    "month" : "Mai",
+    "type": "weltweit",
+    "topic" : "Welt-Passwort-Tag"
+  },
+  {
+    "dayOfMonth" : "5",
+    "month" : "Mai",
+    "type": "Europa",
+    "topic" : "Europatag"
+  },
+  {
+    "dayOfMonth" : "5",
+    "month" : "Mai",
+    "type": "Deutschland",
+    "topic" : "Tag des herzkranken Kindes"
+  },
+  {
+    "dayOfMonth" : "5",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Hebammentag"
+  },
+  {
+    "dayOfMonth" : "5",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Welttag der Handhygiene"
+  },
+  {
+    "dayOfMonth" : "5",
+    "month" : "Mai",
+    "type": "Europa",
+    "topic" : "Europäischer Protesttag zur Gleichstellung von Menschen mit Behinderung"
+  },
+  {
+    "dayOfMonth" : "6",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Anti-Diät-Tag"
+  },
+  {
+    "dayOfMonth" : "6",
+    "month" : "Mai",
+    "type": "römisch-katholisch",
+    "topic" : "Welttag für die Berufungen"
+  },
+  {
+    "dayOfMonth" : "8",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Weltrotkreuztag"
+  },
+  {
+    "dayOfMonth" : "8",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Tag der Befreiung/Victory in Europe Day als Tag des Sieges über den Nationalsozialismus"
+  },
+  {
+    "dayOfMonth" : "9",
+    "month" : "Mai",
+    "type": "Europa",
+    "topic" : "Europatag"
+  },
+  {
+    "dayOfMonth" : "10",
+    "month" : "Mai",
+    "type": "Deutschland",
+    "topic" : "Tag gegen den Schlaganfall"
+  },
+  {
+    "dayOfMonth" : "10",
+    "month" : "Mai",
+    "type": "Deutschland",
+    "topic" : "Tag des (freien) Buches"
+  },
+  {
+    "dayOfMonth" : "12",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Tag des chronic fatigue syndrome (CFS-Tag)"
+  },
+  {
+    "dayOfMonth" : "12",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Tag der Pflege"
+  },
+  {
+    "dayOfMonth" : "13",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Tag des Cocktails"
+  },
+  {
+    "dayOfMonth" : "15",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Tag der Familie"
+  },
+  {
+    "dayOfMonth" : "15",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Tag der Kriegsdienstverweigerer"
+  },
+  {
+    "dayOfMonth" : "16",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Tag des Lichts"
+  },
+  {
+    "dayOfMonth" : "17",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Tag gegen Homophobie"
+  },
+  {
+    "dayOfMonth" : "17",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Weltfernmeldetag"
+  },
+  {
+    "dayOfMonth" : "17",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Welt-Hypertonie-Tag"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "Mai",
+    "type": "Deutschland",
+    "topic" : "Deutscher Venentag"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Welttag für kulturelle Entwicklung"
+  },
+  {
+    "dayOfMonth" : "22",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Tag zur Erhaltung der Artenvielfalt"
+  },
+  {
+    "dayOfMonth" : "23",
+    "month" : "Mai",
+    "type": "Deutschland",
+    "topic" : "Tag des Grundgesetzes"
+  },
+  {
+    "dayOfMonth" : "23",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Welt-Schildkröten-Tag (World Turtle Day)"
+  },
+  {
+    "dayOfMonth" : "23",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Tag zur Beendigung von Geburtsfisteln"
+  },
+  {
+    "dayOfMonth" : "24",
+    "month" : "Mai",
+    "type": "Europa",
+    "topic" : "Tag der Parks"
+  },
+  {
+    "dayOfMonth" : "25",
+    "month" : "Mai",
+    "type": "christlich",
+    "topic" : "Urbanstag"
+  },
+  {
+    "dayOfMonth" : "28",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Weltspieltag"
+  },
+  {
+    "dayOfMonth" : "28",
+    "month" : "Mai",
+    "type": "Weltweit",
+    "topic" : "Internationaler Aktionstag für Frauengesundheit"
+  },
+  {
+    "dayOfMonth" : "28",
+    "month" : "Mai",
+    "type": "Deutschland",
+    "topic" : "Tag der Lebensspende"
+  },
+  {
+    "dayOfMonth" : "29",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Internationaler Tag des Friedenssicherungs-Personals der Vereinten Nationen"
+  },
+  {
+    "dayOfMonth" : "31",
+    "month" : "Mai",
+    "type": "international",
+    "topic" : "Weltnichtrauchertag (World No Tobacco Day)"
+  }
+]

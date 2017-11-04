@@ -1,0 +1,212 @@
+[
+  {
+    "dayOfMonth" : "1",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Weltvegantag"
+  },
+  {
+    "dayOfMonth" : "1",
+    "month" : "November",
+    "type": "römisch-katholische Kirche",
+    "topic" : "Allerheiligen"
+  },
+  {
+    "dayOfMonth" : "1",
+    "month" : "November",
+    "type": "Evangelisch-lutherische Kirche",
+    "topic" : "Gedenktag der Heiligen"
+  },
+  {
+    "dayOfMonth" : "2",
+    "month" : "November",
+    "type": "römisch-katholische Kirche",
+    "topic" : "Allerseelen"
+  },
+  {
+    "dayOfMonth" : "3",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Weltmännertag"
+  },
+  {
+    "dayOfMonth" : "3",
+    "month" : "November",
+    "type": "Römisch-katholische Kirche",
+    "topic" : "Hubertustag"
+  },
+  {
+    "dayOfMonth" : "6",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Internationaler Tag für die Verhütung der Ausbeutung der Umwelt in Kriegen und bewaffneten Konflikten"
+  },
+  {
+    "dayOfMonth" : "6",
+    "month" : "November",
+    "type": "Römisch-katholische Kirche",
+    "topic" : "Leonhardifest"
+  },
+  {
+    "dayOfMonth" : "7",
+    "month" : "November			Tag der Oktoberrevolution	",
+    "type": "Aktionstag",
+    "topic" : "International"
+  },
+  {
+    "dayOfMonth" : "8",
+    "month" : "November",
+    "type": "International",
+    "topic" : "World Town Planning Day"
+  },
+  {
+    "dayOfMonth" : "9",
+    "month" : "November	Gedenktag		Tag der Erfinder	",
+    "type": "Gedenktag",
+    "topic" : "Deutschland"
+  },
+  {
+    "dayOfMonth" : "9",
+    "month" : "November",
+    "type": "Deutschland",
+    "topic" : "Gedenken an die Reichspogromnacht 1938"
+  },
+  {
+    "dayOfMonth" : "9",
+    "month" : "November",
+    "type": "Deutschland",
+    "topic" : "Gedenken an den Fall der Mauer zwischen Berlin Ost – West 1989"
+  },
+  {
+    "dayOfMonth" : "9",
+    "month" : "November",
+    "type": "Römisch-katholische Kirche",
+    "topic" : "Weihetag der Lateranbasilika in Rom"
+  },
+  {
+    "dayOfMonth" : "10",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Welttag der Wissenschaft"
+  },
+  {
+    "dayOfMonth" : "11",
+    "month" : "November",
+    "type": "Römisch-katholische Kirche",
+    "topic" : "Martinstag"
+  },
+  {
+    "dayOfMonth" : "14",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Weltdiabetestag"
+  },
+  {
+    "dayOfMonth" : "15",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Tag der Autoren hinter Gittern"
+  },
+  {
+    "dayOfMonth" : "16",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Internationaler Tag für Toleranz"
+  },
+  {
+    "dayOfMonth" : "16",
+    "month" : "November",
+    "type": "Deutschland",
+    "topic" : "Vorlesetag"
+  },
+  {
+    "dayOfMonth" : "17",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Weltstudententag"
+  },
+  {
+    "dayOfMonth" : "17",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Internationaler Tag des Frühgeborenen"
+  },
+  {
+    "dayOfMonth" : "19",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Welttoilettentag"
+  },
+  {
+    "dayOfMonth" : "19",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Internationaler Männertag"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Weltkindertag"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Welttag der Industrialisierung Afrikas"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "November",
+    "type": "Deutschland",
+    "topic" : "Deutscher Lebertag"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Welttag des Fernsehens"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "November",
+    "type": "Römisch-katholische Kirche",
+    "topic" : "Gedenktag Unserer Lieben Frau in Jerusalem"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Welt Hallo Tag"
+  },
+  {
+    "dayOfMonth" : "22",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Tag der Hausmusik"
+  },
+  {
+    "dayOfMonth" : "25",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Internationaler Tag gegen Gewalt an Frauen"
+  },
+  {
+    "dayOfMonth" : "26",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Welttag der Zeitschriften"
+  },
+  {
+    "dayOfMonth" : "29",
+    "month" : "November",
+    "type": "international",
+    "topic" : "Welttag der Solidarität mit dem palästinensischen Volk"
+  },
+  {
+    "dayOfMonth" : "30",
+    "month" : "November",
+    "type": "Römisch-katholische Kirche",
+    "topic" : "Andreastag"
+  }
+]

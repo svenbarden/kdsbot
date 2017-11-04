@@ -34,8 +34,8 @@ public class GameLogService {
         LOGGER.debug("logging for user {} with id {}", userName, user);
         if(member.getGame() == null) {
             LOGGER.debug("user {} has no game. updating all end dates", userName);
-            Query updateQuery = persistenceService.getEntityManager().createQuery("UPDATE GameLog g SET g.end = :end WHERE g.user = :user AND g.end IS NULL");
-            updateQuery.setParameter("user", user).setParameter("end", new Timestamp(System.currentTimeMillis()));
+            Query updateQuery = persistenceService.getEntityManager().createQuery("UPDATE GameLog g SET g.end = :endDate WHERE g.user = :user AND g.end IS NULL");
+            updateQuery.setParameter("user", user).setParameter("endDate", new Timestamp(System.currentTimeMillis()));
             int updated = persistenceService.executeUpdate(updateQuery);
             LOGGER.debug("updated {} game entries for {}", updated, userName);
         } else {
@@ -52,8 +52,8 @@ public class GameLogService {
                 gameLog.setUser(user);
                 persistenceService.persist(gameLog);
             }
-            Query updateQuery = persistenceService.getEntityManager().createQuery("UPDATE GameLog g SET g.end = :end WHERE g.user = :user AND NOT g.game = :game AND g.end IS NULL");
-            updateQuery.setParameter("user", user).setParameter("game", game).setParameter("end", new Timestamp(System.currentTimeMillis()));
+            Query updateQuery = persistenceService.getEntityManager().createQuery("UPDATE GameLog g SET g.end = :endDate WHERE g.user = :user AND NOT g.game = :game AND g.end IS NULL");
+            updateQuery.setParameter("user", user).setParameter("game", game).setParameter("endDate", new Timestamp(System.currentTimeMillis()));
             int updated = persistenceService.executeUpdate(updateQuery);
             LOGGER.debug("updated {} different game logs for {}", updated, userName);
         }

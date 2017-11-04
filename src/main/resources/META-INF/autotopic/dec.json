@@ -1,0 +1,146 @@
+[
+  {
+    "dayOfMonth" : "1",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Welt-AIDS-Tag"
+  },
+  {
+    "dayOfMonth" : "2",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Internationaler Tag für die Abschaffung der Sklaverei"
+  },
+  {
+    "dayOfMonth" : "2",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Internationaler Tag der Modelleisenbahn"
+  },
+  {
+    "dayOfMonth" : "3",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Internationaler Tag der Menschen mit Behinderung"
+  },
+  {
+    "dayOfMonth" : "4",
+    "month" : "Dezember",
+    "type": "Römisch-katholische Kirche",
+    "topic" : "Barbaratag"
+  },
+  {
+    "dayOfMonth" : "5",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Internationaler Tag des Ehrenamtes"
+  },
+  {
+    "dayOfMonth" : "5",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Weltbodentag"
+  },
+  {
+    "dayOfMonth" : "6",
+    "month" : "Dezember",
+    "type": "Römisch-katholische Kirche",
+    "topic" : "Nikolaustag"
+  },
+  {
+    "dayOfMonth" : "7",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Tag der Internationalen Zivilluftfahrt"
+  },
+  {
+    "dayOfMonth" : "8",
+    "month" : "Dezember",
+    "type": "Römisch-katholische Kirche",
+    "topic" : "Unbefleckte Empfängnis"
+  },
+  {
+    "dayOfMonth" : "9",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Welt-Anti-Korruptions-Tag"
+  },
+  {
+    "dayOfMonth" : "10",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Internationaler Tag der Menschenrechte"
+  },
+  {
+    "dayOfMonth" : "11",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Welttag der Berge"
+  },
+  {
+    "dayOfMonth" : "11",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Tag der UNICEF"
+  },
+  {
+    "dayOfMonth" : "15",
+    "month" : "Dezember",
+    "type": "Esperantosprecher",
+    "topic" : "Esperantobuchtag/Zamenhof-Tag"
+  },
+  {
+    "dayOfMonth" : "18",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Internationaler Tag der Migranten"
+  },
+  {
+    "dayOfMonth" : "19",
+    "month" : "Dezember",
+    "type": "Deutschland",
+    "topic" : "Gedenken für die Opfer des Völkermordes an den Sinti und Roma"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "Dezember",
+    "type": "international",
+    "topic" : "Internationaler Tag der menschlichen Solidarität[132]"
+  },
+  {
+    "dayOfMonth" : "21",
+    "month" : "Dezember",
+    "type": "Nordeuropa",
+    "topic" : "Julfest"
+  },
+  {
+    "dayOfMonth" : "24",
+    "month" : "Dezember",
+    "type": "Christentum",
+    "topic" : "Heiligabend"
+  },
+  {
+    "dayOfMonth" : "25",
+    "month" : "Dezember",
+    "type": "Christentum",
+    "topic" : "Weihnachten"
+  },
+  {
+    "dayOfMonth" : "26",
+    "month" : "Dezember",
+    "type": "Römisch-katholische Kirche",
+    "topic" : "2. Weihnachtsfeiertag"
+  },
+  {
+    "dayOfMonth" : "28",
+    "month" : "Dezember",
+    "type": "Römisch-katholische Kirche",
+    "topic" : "Tag der unschuldigen Kinder"
+  },
+  {
+    "dayOfMonth" : "31",
+    "month" : "Dezember",
+    "type": "Römisch-katholische Kirche",
+    "topic" : "Silvester"
+  }
+]
