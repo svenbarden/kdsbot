@@ -49,9 +49,9 @@
   },
   {
     "dayOfMonth" : "7",
-    "month" : "November			Tag der Oktoberrevolution	",
+    "month" : "November",
     "type": "Aktionstag",
-    "topic" : "International"
+    "topic" : "Tag der Oktoberrevolution"
   },
   {
     "dayOfMonth" : "8",
@@ -61,9 +61,9 @@
   },
   {
     "dayOfMonth" : "9",
-    "month" : "November	Gedenktag		Tag der Erfinder	",
+    "month" : "November",
     "type": "Gedenktag",
-    "topic" : "Deutschland"
+    "topic" : "Tag der Erfinder"
   },
   {
     "dayOfMonth" : "9",
