@@ -123,17 +123,20 @@ public class TopicService implements ApplicationContextAware {
     public String getAutoTopic() {
         Calendar now = Calendar.getInstance();
         int dayOfMonth = now.get(Calendar.DAY_OF_MONTH);
-        int month = now.get(Calendar.MONTH);
+        int month = now.get(Calendar.MONTH) + 1;
         List<AutoTopic> topics = findTopics(dayOfMonth, month);
         return topics.stream().map(AutoTopic::getTopic).collect(Collectors.joining(" | "));
     }
 
     @Scheduled(cron = "0 0 6 * * *")
+    @Transactional(readOnly = true)
     public void executeAutoTopic() {
         LOGGER.info("setting auto topics");
         String topic = getAutoTopic();
         if(topic == null || topic.length() == 0) {
             topic = "Happy Sad Tag mit ohne Topic";
+        } else {
+            topic = "Happy " + topic;
         }
         String finalTopic = topic;
         configuration.getAutoTopicTargets().forEach((serverName, channelNames) -> {

@@ -1,7 +1,7 @@
 logging:
   level:
     de:
-      sba: trace
+      sba: info
 spring:
   jpa:
     hibernate:
