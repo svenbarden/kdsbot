@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Query;
 import java.sql.Timestamp;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -41,7 +42,7 @@ public class GameLogService {
         } else {
             String game = member.getGame().getName();
             LOGGER.debug("user {} is playing {}", userName, game);
-            Query query = persistenceService.getEntityManager().createQuery("SELECT g FROM GameLog g WHERE g.user = :user AND g.game = :game AND g.start IS NULL");
+            Query query = persistenceService.getEntityManager().createQuery("SELECT g FROM GameLog g WHERE g.user = :user AND g.game = :game AND g.end IS NULL");
             query.setParameter("user", user).setParameter("game", game);
             List<GameLog> gameLogs = query.getResultList();
             if (gameLogs.size() == 0) {
@@ -51,6 +52,12 @@ public class GameLogService {
                 gameLog.setGame(game);
                 gameLog.setUser(user);
                 persistenceService.persist(gameLog);
+            } else if(gameLogs.size() > 1) {
+                //db fehler, schnell fixen!
+                for (int i = 1; i < gameLogs.size(); i++) {
+                    gameLogs.get(i).setEnd(new Timestamp(System.currentTimeMillis()));
+                    persistenceService.persist(gameLogs.get(i));
+                }
             }
             Query updateQuery = persistenceService.getEntityManager().createQuery("UPDATE GameLog g SET g.end = :endDate WHERE g.user = :user AND NOT g.game = :game AND g.end IS NULL");
             updateQuery.setParameter("user", user).setParameter("game", game).setParameter("endDate", new Timestamp(System.currentTimeMillis()));
@@ -66,6 +73,25 @@ public class GameLogService {
         client.getGuilds().stream().filter(guild -> guild.getName().equals("Der Kult")).forEach(guild -> {
             guild.getMembers().forEach(this::log);
         });
+    }
+
+    @Transactional(readOnly = true)
+    public List<GameLog> getTopByGame(String game, int top) {
+        if(top <= 0) {
+            top = 3;
+        }
+        Query query = persistenceService.getEntityManager().createQuery("SELECT g.user, sum(case when g.end is null then CURRENT_TIMESTAMP else g.end end - g.start) as duration FROM GameLog g WHERE g.game LIKE :game GROUP BY g.user ORDER BY duration DESC");
+        query.setParameter("game", game);
+        query.setMaxResults(top);
+        List resultList = query.getResultList();
+
+        System.out.println(resultList);
+
+        Query query2 = persistenceService.getEntityManager().createQuery("SELECT g.user, g.start, g.end, EXTRACT(EPOCH FROM g.end) - EXTRACT(EPOCH FROM g.start) as duration FROM GameLog g WHERE g.game LIKE :game ");
+        query2.setParameter("game", game);
+        List resultList2 = query2.getResultList();
+        System.out.println(resultList2);
+        return Collections.EMPTY_LIST;
     }
 
     @SuppressWarnings("unchecked")

@@ -139,7 +139,7 @@ public class TopicService implements ApplicationContextAware {
             topic = "Happy " + topic;
         }
         String finalTopic = topic;
-        configuration.getAutoTopicTargets().forEach((serverName, channelNames) -> {
+        configuration.getTopic().getAutoTopicTargets().forEach((serverName, channelNames) -> {
             List<Guild> guilds = client.getGuildsByName(serverName, false);
             guilds.forEach(guild -> setAutoTopic(guild, channelNames, finalTopic));
         });

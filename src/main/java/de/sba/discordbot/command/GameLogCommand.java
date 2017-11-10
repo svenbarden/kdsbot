@@ -47,6 +47,15 @@ public class GameLogCommand extends Command {
                         }
                     });
                     break;
+                case "topgame":
+                    if(args.length >= 2) {
+                        int top = 3;
+                        if(args.length > 2) {
+                            top = Integer.parseInt(args[2]);
+                        }
+                        gameLogService.getTopByGame(args[1], top);
+                    }
+                    break;
                 default:
                     commandEvent.reply("Gibts nicht lowl");
             }

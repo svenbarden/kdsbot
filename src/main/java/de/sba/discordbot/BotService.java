@@ -38,7 +38,7 @@ public class BotService {
         client.getGuilds().forEach(guild -> LOGGER.info("found guild {} ({})", guild.getName(), guild.getId()));
         LOGGER.info("setting personal name to {}", name);
 //        client.getSelfUser().getManagerUpdatable().getNameField().setValue(name);
-        client.getSelfUser().getManager().setName(name).complete();
+//        client.getSelfUser().getManager().setName(name).complete();
         return client;
     }
 }

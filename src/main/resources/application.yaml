@@ -5,7 +5,7 @@ logging:
 spring:
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     database-platform: org.hibernate.dialect.H2Dialect
   datasource:
     url: jdbc:h2:file:E:\\dev\\database\\h2\\discordbot\\db
@@ -17,5 +17,5 @@ de:
         - Topix Bot Extended
       topic:
         auto-topic-targets:
-          - Der Kult: [general]
-          - sba: [general]
+          Der Kult: [general, experimente-mit-best-bot-eu]
+          sba: [general]
