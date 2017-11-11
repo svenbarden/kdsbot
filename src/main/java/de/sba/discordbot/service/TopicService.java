@@ -154,7 +154,7 @@ public class TopicService implements ApplicationContextAware {
             } else {
                 channels.forEach(textChannel -> {
                     textChannel.getManager().setTopic(topic).complete();
-                    textChannel.sendMessageFormat("```\nDaily topic gesetzt: {}\n```", topic).complete();
+                    textChannel.sendMessageFormat("```\nDaily topic gesetzt: %s\n```", topic).complete();
                 });
             }
         });
