@@ -5,7 +5,7 @@
 
 	<groupId>de.sba</groupId>
 	<artifactId>discord-bot</artifactId>
-	<version>0.0.4_02-SNAPSHOT</version>
+	<version>0.0.5_06-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>discord-bot</name>

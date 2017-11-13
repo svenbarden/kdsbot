@@ -8,7 +8,7 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.H2Dialect
   datasource:
-    url: jdbc:h2:file:E:\\dev\\database\\h2\\discordbot\\db
+    url: jdbc:h2:file:E:\\dev\\database\\h2\\discordbot\\h2
 de:
   sba:
     discordbot:

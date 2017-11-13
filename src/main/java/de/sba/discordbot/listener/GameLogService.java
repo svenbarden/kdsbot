@@ -4,6 +4,9 @@ import de.sba.discordbot.PersistenceService;
 import de.sba.discordbot.model.GameLog;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.Member;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.mutable.MutableLong;
+import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Query;
 import java.sql.Timestamp;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class GameLogService {
@@ -98,5 +100,44 @@ public class GameLogService {
     public GameLog getForUser(String userId) {
         return (GameLog) persistenceService.getEntityManager().createQuery("SELECT g FROM GameLog g WHERE g.end IS NULL AND g.user = :user")
                 .setParameter("user", userId).getSingleResult();
+    }
+
+    @Transactional(readOnly = true)
+    public Map<String, Map<String, MutableLong>> getToday(int diff) {
+        LOGGER.debug("get today game log");
+        diff = -Math.abs(diff);
+        Query query = persistenceService.getEntityManager().createQuery("SELECT g FROM GameLog g WHERE g.start >= :startOfDay AND g.start <= :endOfDay AND (g.end IS NULL OR g.end <= :endOfDay)");
+        Date date = DateUtils.setSeconds(DateUtils.setMinutes(DateUtils.setHours(new Date(), 0), 0), 0);
+        long endOfDayMillis;
+        if(diff < 0) {
+            date = DateUtils.addDays(date, diff);
+            endOfDayMillis = DateUtils.setHours(DateUtils.setMinutes(DateUtils.setSeconds(date, 59), 59), 23).getTime();
+        } else {
+            endOfDayMillis = System.currentTimeMillis();
+        }
+        Timestamp startOfDay = new Timestamp(date.getTime());
+        Timestamp endOfDay = new Timestamp(endOfDayMillis);
+        query.setParameter("startOfDay", startOfDay).setParameter("endOfDay", endOfDay);
+
+        List<GameLog> gameLogs = query.getResultList();
+        Map<String, Map<String, MutableLong>> resultMap = new LinkedHashMap<>();
+        long startOfDayMillis = startOfDay.getTime();
+        for (GameLog gameLog : gameLogs) {
+            LOGGER.trace("check gamelogs for user {} and game {} from {} to {}", gameLog.getUser(), gameLog.getGame(), gameLog.getStart(), gameLog.getEnd());
+            Map<String, MutableLong> userMap = resultMap.computeIfAbsent(gameLog.getUser(), k -> new LinkedHashMap<>());
+            MutableLong currentDuration = userMap.computeIfAbsent(gameLog.getGame(), k -> new MutableLong(0));
+            LOGGER.trace("current duration is {}", currentDuration);
+            long start = gameLog.getStart().getTime();
+            if(start < startOfDayMillis) {
+                LOGGER.trace("set start date to todayStart");
+                start = startOfDayMillis;
+            }
+            long end = ObjectUtils.defaultIfNull(gameLog.getEnd(), endOfDay).getTime();
+            long addedDuration = end - start;
+            LOGGER.trace("add duration {}", addedDuration);
+            currentDuration.add(addedDuration);
+        }
+        LOGGER.debug("return map {}", resultMap);
+        return resultMap;
     }
 }
