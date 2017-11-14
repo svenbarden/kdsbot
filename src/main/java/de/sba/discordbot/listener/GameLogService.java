@@ -2,6 +2,7 @@ package de.sba.discordbot.listener;
 
 import de.sba.discordbot.PersistenceService;
 import de.sba.discordbot.model.GameLog;
+import de.sba.discordbot.model.GameLogResult;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.Member;
 import org.apache.commons.lang3.ObjectUtils;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Query;
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.util.*;
 
 @Service
@@ -103,7 +105,7 @@ public class GameLogService {
     }
 
     @Transactional(readOnly = true)
-    public Map<String, Map<String, MutableLong>> getToday(int diff) {
+    public GameLogResult getToday(int diff) {
         LOGGER.debug("get today game log");
         diff = -Math.abs(diff);
         Query query = persistenceService.getEntityManager().createQuery("SELECT g FROM GameLog g WHERE g.start >= :startOfDay AND g.start <= :endOfDay AND (g.end IS NULL OR g.end <= :endOfDay)");
@@ -137,7 +139,12 @@ public class GameLogService {
             LOGGER.trace("add duration {}", addedDuration);
             currentDuration.add(addedDuration);
         }
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,DateFormat.SHORT, Locale.GERMAN);
+        GameLogResult result = new GameLogResult()
+                .setData(resultMap)
+                .setFrom(dateFormat.format(startOfDay))
+                .setTo(dateFormat.format(endOfDay));
         LOGGER.debug("return map {}", resultMap);
-        return resultMap;
+        return result;
     }
 }

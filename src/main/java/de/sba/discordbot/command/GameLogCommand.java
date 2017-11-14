@@ -4,10 +4,10 @@ import com.jagrosh.jdautilities.commandclient.Command;
 import com.jagrosh.jdautilities.commandclient.CommandEvent;
 import de.sba.discordbot.listener.GameLogService;
 import de.sba.discordbot.model.GameLog;
+import de.sba.discordbot.model.GameLogResult;
 import net.dv8tion.jda.core.entities.Member;
 import org.apache.commons.lang3.mutable.MutableLong;
 
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class GameLogCommand extends Command {
@@ -59,9 +59,10 @@ public class GameLogCommand extends Command {
                     if(args.length > 1) {
                         diff = Integer.parseInt(args[1]);
                     }
-                    Map<String, Map<String, MutableLong>> today = gameLogService.getToday(diff);
+                    GameLogResult result = gameLogService.getToday(diff);
                     StringBuilder msg = new StringBuilder("```markdown\n");
-                    today.forEach((userId, userMap) -> {
+                    msg.append("Von ").append(result.getFrom()).append(" bis ").append(result.getTo()).append("\n");
+                    result.getData().forEach((userId, userMap) -> {
                         Member gameMember = commandEvent.getGuild().getMemberById(userId);
                         if(gameMember != null) {
                             MutableLong sum = new MutableLong(0);
