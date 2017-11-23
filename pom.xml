@@ -5,7 +5,7 @@
 
 	<groupId>de.sba</groupId>
 	<artifactId>discord-bot</artifactId>
-	<version>0.0.5_07-SNAPSHOT</version>
+	<version>0.0.7_03-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>discord-bot</name>
@@ -124,6 +124,27 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+      <!-- use assembly plugin to create zip -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/assembly/assembly.xml</descriptor>
+					</descriptors>
+					<appendAssemblyId>false</appendAssemblyId>
+					<finalName>discord-bot-${project.version}</finalName>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

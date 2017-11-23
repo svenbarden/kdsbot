@@ -93,6 +93,14 @@ public class TopicService implements ApplicationContextAware {
 
     @SuppressWarnings("unchecked")
     @Transactional(readOnly = true)
+    public List<AutoTopic> search(String s) {
+        Query query = persistenceService.getEntityManager().createQuery("SELECT t FROM AutoTopic t WHERE lower(t.topic) LIKE lower(:topic) ORDER BY t.month ASC, t.dayOfMonth ASC");
+        query.setParameter("topic", "%" + s + "%");
+        return query.getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Transactional(readOnly = true)
     public List<AutoTopic> findTopics(int dayOfMonth, int month) {
         Query query = persistenceService.getEntityManager().createQuery("SELECT t FROM AutoTopic t WHERE t.dayOfMonth = :dayOfMonth AND t.month = :month");
         query.setParameter("dayOfMonth", dayOfMonth).setParameter("month", month);

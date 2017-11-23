@@ -1,4 +1,4 @@
-package de.sba.discordbot.listener;
+package de.sba.discordbot.service;
 
 import de.sba.discordbot.PersistenceService;
 import de.sba.discordbot.model.GameLog;
@@ -104,6 +104,46 @@ public class GameLogService {
                 .setParameter("user", userId).getSingleResult();
     }
 
+    private GameLogResult getGameLogResult(Query query, Timestamp startOfDay, Timestamp endOfDay) {
+	    Map<String, Map<String, MutableLong>> resultMap = new LinkedHashMap<>();
+	    List<GameLog> gameLogs = query.getResultList();
+	    Long startOfDayMillis = null;
+	    if (startOfDay != null) {
+		    startOfDayMillis = startOfDay.getTime();
+        }
+        if(endOfDay == null) {
+	    	endOfDay = new Timestamp(System.currentTimeMillis());
+        }
+	    for (GameLog gameLog : gameLogs) {
+		    LOGGER.trace("check gamelogs for user {} and game {} from {} to {}", gameLog.getUser(), gameLog.getGame(), gameLog.getStart(), gameLog.getEnd());
+		    Map<String, MutableLong> userMap = resultMap.computeIfAbsent(gameLog.getUser(), k -> new LinkedHashMap<>());
+		    MutableLong currentDuration = userMap.computeIfAbsent(gameLog.getGame(), k -> new MutableLong(0));
+		    LOGGER.trace("current duration is {}", currentDuration);
+		    long start = gameLog.getStart().getTime();
+		    if(startOfDayMillis != null && start < startOfDayMillis) {
+			    LOGGER.trace("set start date to todayStart");
+			    start = startOfDayMillis;
+		    }
+		    long end = ObjectUtils.defaultIfNull(gameLog.getEnd(), endOfDay).getTime();
+		    long addedDuration = end - start;
+		    LOGGER.trace("add duration {}", addedDuration);
+		    currentDuration.add(addedDuration);
+	    }
+	    DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,DateFormat.SHORT, Locale.GERMAN);
+	    GameLogResult result = new GameLogResult()
+			    .setData(resultMap)
+			    .setFrom(startOfDay == null ? null : dateFormat.format(startOfDay))
+			    .setTo(dateFormat.format(endOfDay));
+	    LOGGER.debug("return map {}", resultMap);
+	    return result;
+    }
+
+	@Transactional(readOnly = true)
+	public GameLogResult getAll() {
+		Query query = persistenceService.getEntityManager().createQuery("SELECT g FROM GameLog g ");
+    	return getGameLogResult(query, null, null);
+	}
+
     @Transactional(readOnly = true)
     public GameLogResult getToday(int diff) {
         LOGGER.debug("get today game log");
@@ -120,31 +160,6 @@ public class GameLogService {
         Timestamp startOfDay = new Timestamp(date.getTime());
         Timestamp endOfDay = new Timestamp(endOfDayMillis);
         query.setParameter("startOfDay", startOfDay).setParameter("endOfDay", endOfDay);
-
-        List<GameLog> gameLogs = query.getResultList();
-        Map<String, Map<String, MutableLong>> resultMap = new LinkedHashMap<>();
-        long startOfDayMillis = startOfDay.getTime();
-        for (GameLog gameLog : gameLogs) {
-            LOGGER.trace("check gamelogs for user {} and game {} from {} to {}", gameLog.getUser(), gameLog.getGame(), gameLog.getStart(), gameLog.getEnd());
-            Map<String, MutableLong> userMap = resultMap.computeIfAbsent(gameLog.getUser(), k -> new LinkedHashMap<>());
-            MutableLong currentDuration = userMap.computeIfAbsent(gameLog.getGame(), k -> new MutableLong(0));
-            LOGGER.trace("current duration is {}", currentDuration);
-            long start = gameLog.getStart().getTime();
-            if(start < startOfDayMillis) {
-                LOGGER.trace("set start date to todayStart");
-                start = startOfDayMillis;
-            }
-            long end = ObjectUtils.defaultIfNull(gameLog.getEnd(), endOfDay).getTime();
-            long addedDuration = end - start;
-            LOGGER.trace("add duration {}", addedDuration);
-            currentDuration.add(addedDuration);
-        }
-        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,DateFormat.SHORT, Locale.GERMAN);
-        GameLogResult result = new GameLogResult()
-                .setData(resultMap)
-                .setFrom(dateFormat.format(startOfDay))
-                .setTo(dateFormat.format(endOfDay));
-        LOGGER.debug("return map {}", resultMap);
-        return result;
+	    return getGameLogResult(query, startOfDay, endOfDay);
     }
 }

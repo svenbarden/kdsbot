@@ -2,18 +2,15 @@ package de.sba.discordbot.command;
 
 import com.jagrosh.jdautilities.commandclient.Command;
 import com.jagrosh.jdautilities.commandclient.CommandEvent;
+import de.sba.discordbot.model.AutoTopic;
 import de.sba.discordbot.service.TopicService;
-import net.dv8tion.jda.core.requests.RequestFuture;
-import net.dv8tion.jda.core.requests.restaction.AuditableRestAction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
+import java.util.List;
 
 public class TopicCommand extends Command {
     private static final Logger LOGGER = LoggerFactory.getLogger(TopicCommand.class);
@@ -49,7 +46,7 @@ public class TopicCommand extends Command {
             commandEvent.replyWarning(String.format("Musst schon Topic angeben um topic zu setzen %s", commandEvent.getAuthor().getName()));
         } else {
             String[] args = commandEvent.getArgs().split("\\s+");
-            String newTopic;
+            String newTopic = null;
             String response = "";
             switch (args[0]) {
                 case "reload":
@@ -73,6 +70,26 @@ public class TopicCommand extends Command {
                         response = String.format("```\nDaily topic war schon registriert: %s\n```", newTopic);
                     }
                     break;
+                case "search":
+                    LOGGER.trace("execute search");
+                    if(args.length < 2) {
+                        response = String.format("```\nMusst schon Topic zum suchen angeben %s\n```", commandEvent.getAuthor().getName());
+                    } else {
+                        String search = StringUtils.arrayToDelimitedString(Arrays.copyOfRange(args, 1, args.length), " ");
+                        List<AutoTopic> topics = topicService.search(search);
+                        StringBuilder result = new StringBuilder("```\n");
+                        if(topics.isEmpty()) {
+                            result.append(String.format("Keine Topics für %s gefunden\n", search));
+                        } else {
+                            topics.forEach(autoTopic -> {
+                                result.append(String.format("%02d.%02d.: %s\n", autoTopic.getDayOfMonth(), autoTopic.getMonth(), autoTopic.getTopic()));
+                            });
+                        }
+                        result.append("```");
+                        response = result.toString();
+                    }
+
+                    break;
                 case "set":
                     LOGGER.trace("execute set");
                     newTopic = StringUtils.arrayToDelimitedString(Arrays.copyOfRange(args, 1, args.length), " ");
@@ -83,20 +100,11 @@ public class TopicCommand extends Command {
                     response = String.format("```\nTopic gesetzt! Gute Arbeit %s\n```", commandEvent.getAuthor().getName());
             }
             if(newTopic != null) {
-                AuditableRestAction<Void> action = commandEvent.getEvent().getTextChannel().getManager().setTopic(newTopic);
-                RequestFuture<Void> submit = action.submit();
-                try {
-                    submit.get(5, TimeUnit.SECONDS);
-                } catch (InterruptedException | ExecutionException | TimeoutException e) {
-                    e.printStackTrace();
-                }
-                if (response != null) {
-                    LOGGER.debug("respond with {}", response);
-//                    commandEvent.getEvent().getTextChannel().sendMessage(response);
-                    commandEvent.reply(response);
-//                    commandEvent.getChannel().sendMessage(String.format("Topic gesetzt! Gute Arbeit %s", commandEvent.getAuthor()));
-//                    commandEvent.replySuccess(String.format("Topic gesetzt! Gute Arbeit %s", commandEvent.getAuthor()));
-                }
+                commandEvent.getEvent().getTextChannel().getManager().setTopic(newTopic).complete();
+            }
+            if (response != null) {
+                LOGGER.debug("respond with {}", response);
+                commandEvent.reply(response);
             }
         }
     }

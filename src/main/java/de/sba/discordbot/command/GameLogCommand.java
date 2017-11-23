@@ -2,10 +2,11 @@ package de.sba.discordbot.command;
 
 import com.jagrosh.jdautilities.commandclient.Command;
 import com.jagrosh.jdautilities.commandclient.CommandEvent;
-import de.sba.discordbot.listener.GameLogService;
 import de.sba.discordbot.model.GameLog;
 import de.sba.discordbot.model.GameLogResult;
+import de.sba.discordbot.service.GameLogService;
 import net.dv8tion.jda.core.entities.Member;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.mutable.MutableLong;
 
 import java.util.concurrent.TimeUnit;
@@ -35,6 +36,24 @@ public class GameLogCommand extends Command {
         return String.format("%d:%02d", hours, minutes);
     }
 
+    private String buildGameLogResultString(CommandEvent commandEvent, GameLogResult result) {
+        StringBuilder msg = new StringBuilder("```markdown\n");
+        msg.append("Von ").append(ObjectUtils.defaultIfNull(result.getFrom(), "Anfang")).append(" bis ").append(result.getTo()).append("\n");
+        result.getData().forEach((userId, userMap) -> {
+            Member gameMember = commandEvent.getGuild().getMemberById(userId);
+            if(gameMember != null) {
+                MutableLong sum = new MutableLong(0);
+                userMap.forEach((game, duration) -> {
+                    sum.add(duration);
+                    msg.append(String.format("<%s %s> %s\n", gameMember.getEffectiveName(), game, millisToString(duration.longValue())));
+                });
+                msg.append(String.format("* Summe: %s\n", millisToString(sum.longValue())));
+            }
+        });
+        msg.append("\n```");
+        return msg.toString();
+    }
+
     @Override
     protected void execute(CommandEvent commandEvent) {
         if(commandEvent.getArgs().isEmpty()) {
@@ -59,22 +78,10 @@ public class GameLogCommand extends Command {
                     if(args.length > 1) {
                         diff = Integer.parseInt(args[1]);
                     }
-                    GameLogResult result = gameLogService.getToday(diff);
-                    StringBuilder msg = new StringBuilder("```markdown\n");
-                    msg.append("Von ").append(result.getFrom()).append(" bis ").append(result.getTo()).append("\n");
-                    result.getData().forEach((userId, userMap) -> {
-                        Member gameMember = commandEvent.getGuild().getMemberById(userId);
-                        if(gameMember != null) {
-                            MutableLong sum = new MutableLong(0);
-                            userMap.forEach((game, duration) -> {
-                                sum.add(duration);
-                                msg.append(String.format("<%s %s> %s\n", gameMember.getEffectiveName(), game, millisToString(duration.longValue())));
-                            });
-                            msg.append(String.format("* Summe: %s\n", millisToString(sum.longValue())));
-                        }
-                    });
-                    msg.append("\n```");
-                    commandEvent.reply(msg.toString());
+                    commandEvent.reply(buildGameLogResultString(commandEvent, gameLogService.getToday(diff)));
+                    break;
+                case "all":
+                    commandEvent.reply(buildGameLogResultString(commandEvent, gameLogService.getAll()));
                     break;
                 case "topgame":
                     if(args.length >= 2) {

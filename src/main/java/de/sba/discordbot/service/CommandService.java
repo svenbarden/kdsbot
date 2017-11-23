@@ -1,8 +1,8 @@
-package de.sba.discordbot.command;
+package de.sba.discordbot.service;
 
 import com.jagrosh.jdautilities.commandclient.CommandClientBuilder;
-import de.sba.discordbot.listener.GameLogService;
-import de.sba.discordbot.service.TopicService;
+import de.sba.discordbot.command.GameLogCommand;
+import de.sba.discordbot.command.TopicCommand;
 import net.dv8tion.jda.core.JDA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
