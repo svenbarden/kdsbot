@@ -1,4 +1,4 @@
-package de.sba.discordbot;
+package de.sba.discordbot.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,8 +1,8 @@
 package de.sba.discordbot.service;
 
-import de.sba.discordbot.PersistenceService;
 import de.sba.discordbot.model.GameLog;
 import de.sba.discordbot.model.GameLogResult;
+import de.sba.discordbot.util.DateTimeUtils;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.Member;
 import org.apache.commons.lang3.ObjectUtils;
@@ -15,10 +15,14 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.Query;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.util.*;
+import java.util.Collections;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.persistence.Query;
 
 @Service
 public class GameLogService {
@@ -95,7 +99,8 @@ public class GameLogService {
         query2.setParameter("game", game);
         List resultList2 = query2.getResultList();
         System.out.println(resultList2);
-        return Collections.EMPTY_LIST;
+	    //noinspection unchecked
+	    return Collections.EMPTY_LIST;
     }
 
     @SuppressWarnings("unchecked")
@@ -106,7 +111,7 @@ public class GameLogService {
 
     private GameLogResult getGameLogResult(Query query, Timestamp startOfDay, Timestamp endOfDay) {
 	    Map<String, Map<String, MutableLong>> resultMap = new LinkedHashMap<>();
-	    List<GameLog> gameLogs = query.getResultList();
+	    @SuppressWarnings("unchecked") List<GameLog> gameLogs = query.getResultList();
 	    Long startOfDayMillis = null;
 	    if (startOfDay != null) {
 		    startOfDayMillis = startOfDay.getTime();
@@ -114,6 +119,7 @@ public class GameLogService {
         if(endOfDay == null) {
 	    	endOfDay = new Timestamp(System.currentTimeMillis());
         }
+        Timestamp earliest = null;
 	    for (GameLog gameLog : gameLogs) {
 		    LOGGER.trace("check gamelogs for user {} and game {} from {} to {}", gameLog.getUser(), gameLog.getGame(), gameLog.getStart(), gameLog.getEnd());
 		    Map<String, MutableLong> userMap = resultMap.computeIfAbsent(gameLog.getUser(), k -> new LinkedHashMap<>());
@@ -128,12 +134,14 @@ public class GameLogService {
 		    long addedDuration = end - start;
 		    LOGGER.trace("add duration {}", addedDuration);
 		    currentDuration.add(addedDuration);
+		    if(earliest == null || earliest.after(gameLog.getStart())) {
+		    	earliest = gameLog.getStart();
+		    }
 	    }
-	    DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,DateFormat.SHORT, Locale.GERMAN);
 	    GameLogResult result = new GameLogResult()
 			    .setData(resultMap)
-			    .setFrom(startOfDay == null ? null : dateFormat.format(startOfDay))
-			    .setTo(dateFormat.format(endOfDay));
+			    .setFrom(DateTimeUtils.toString(earliest))
+			    .setTo(DateTimeUtils.toString(endOfDay));
 	    LOGGER.debug("return map {}", resultMap);
 	    return result;
     }

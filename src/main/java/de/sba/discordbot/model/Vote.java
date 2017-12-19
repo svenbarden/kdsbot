@@ -1,25 +1,40 @@
 package de.sba.discordbot.model;
 
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-@Table(uniqueConstraints = @UniqueConstraint(name = "UK_VOTE", columnNames = {"poll_id", "user"}))
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+@NamedQueries(
+        {
+                @NamedQuery(name = "vote.findByPollAndUser", query = "SELECT v FROM Vote v WHERE v.poll = :poll AND v.user = :user"),
+                @NamedQuery(name = "vote.findByPoll", query = "SELECT v FROM Vote v WHERE v.poll = :poll")
+        }
+)
+@Table(uniqueConstraints = @UniqueConstraint(name = "UK_VOTE", columnNames = {"user", "poll_id"}))
+@Entity
 public class Vote implements Serializable {
-    private Poll poll;
+    private Long id;
+    private int pollOption;
     private Timestamp voted;
     private String user;
-    private int option;
+    private Poll poll;
 
-    @OneToMany
-    public Poll getPoll() {
-        return poll;
+    @Id
+    @GeneratedValue
+    public Long getId() {
+        return id;
     }
 
-    public void setPoll(Poll poll) {
-        this.poll = poll;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Timestamp getVoted() {
@@ -38,11 +53,20 @@ public class Vote implements Serializable {
         this.user = user;
     }
 
-    public int getOption() {
-        return option;
+    public int getPollOption() {
+        return pollOption;
     }
 
-    public void setOption(int option) {
-        this.option = option;
+    public void setPollOption(int pollOption) {
+        this.pollOption = pollOption;
+    }
+
+    @ManyToOne(optional = false)
+    public Poll getPoll() {
+        return poll;
+    }
+
+    public void setPoll(Poll poll) {
+        this.poll = poll;
     }
 }

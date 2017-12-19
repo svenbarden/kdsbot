@@ -6,16 +6,20 @@ import de.sba.discordbot.model.AutoTopic;
 import de.sba.discordbot.service.TopicService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
+@Component
 public class TopicCommand extends Command {
     private static final Logger LOGGER = LoggerFactory.getLogger(TopicCommand.class);
     private TopicService topicService;
 
+    @Autowired
     public TopicCommand(TopicService topicService) {
         this.topicService = topicService;
         name = "topic";

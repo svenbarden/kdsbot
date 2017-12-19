@@ -2,7 +2,6 @@ package de.sba.discordbot.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.sba.discordbot.PersistenceService;
 import de.sba.discordbot.model.AutoTopic;
 import de.sba.discordbot.model.TopicImport;
 import net.dv8tion.jda.core.JDA;
