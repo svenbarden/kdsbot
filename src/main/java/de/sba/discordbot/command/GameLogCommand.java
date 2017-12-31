@@ -43,7 +43,7 @@ public class GameLogCommand extends Command {
                 MutableLong sum = new MutableLong(0);
                 userMap.forEach((game, duration) -> {
                     sum.add(duration);
-                    msg.append(String.format("<%s %s> %sh\n", gameMember.getEffectiveName(), game, millisToString(duration.longValue())));
+                    msg.append(String.format("<%s %s> %s\n", gameMember.getEffectiveName(), game, millisToString(duration.longValue())));
                 });
                 msg.append(String.format("* Summe: %s\n", millisToString(sum.longValue()))).nextPart();
             }
