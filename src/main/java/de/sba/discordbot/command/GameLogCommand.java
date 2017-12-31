@@ -43,7 +43,7 @@ public class GameLogCommand extends Command {
                 MutableLong sum = new MutableLong(0);
                 userMap.forEach((game, duration) -> {
                     sum.add(duration);
-                    msg.append(String.format("<%s %s> %s\n", gameMember.getEffectiveName(), game, millisToString(duration.longValue())));
+                    msg.append(String.format("<%s %s> %sh\n", gameMember.getEffectiveName(), game, millisToString(duration.longValue())));
                 });
                 msg.append(String.format("* Summe: %s\n", millisToString(sum.longValue()))).nextPart();
             }
@@ -54,7 +54,7 @@ public class GameLogCommand extends Command {
     @Override
     protected void execute(CommandEvent commandEvent) {
         if(commandEvent.getArgs().isEmpty()) {
-            commandEvent.reply(MessageBuilder.build(MessageType.FORMATTED, String.format("Musst schon Topic angeben um topic zu setzen %s",
+            commandEvent.reply(MessageBuilder.build(MessageType.FORMATTED, String.format("Musst schon Topic angeben um Topic zu setzen %s",
                                                                                          commandEvent.getAuthor().getName())).toString());
         } else {
             String[] args = commandEvent.getArgs().split("\\s+");
