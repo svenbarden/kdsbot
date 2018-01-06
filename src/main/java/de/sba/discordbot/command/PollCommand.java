@@ -63,23 +63,31 @@ public class PollCommand extends Command {
         String[] args = event.getArgs().split("\n");
         if(StringUtils.isBlank(event.getArgs())) {
 	        Poll poll = pollService.findOpenByChannel(event.getTextChannel().getId());
-	        if(poll == null) {
-	        	event.reply("```\nGibt keine Umfrage\n```");
+	        if (poll == null) {
+		        event.reply(MessageBuilder.build(MessageType.FORMATTED, "Gibt keine Umfrage").toString());
 	        } else {
-	        	event.reply(pollToString(event, poll));
+		        event.reply(pollToString(event, poll));
+	        }
+        } else if(args.length == 1) {
+	        String[] modifier = event.getArgs().split("\\s+");
+	        if(modifier.length == 1 && modifier[0].equalsIgnoreCase("close")) {
+	        	pollService.close(event.getTextChannel().getId());
+	        	event.reply(MessageBuilder.build(MessageType.FORMATTED, "Umfrage geschlossen").toString());
+	        } else {
+	        	event.reply(MessageBuilder.build(MessageType.FORMATTED, "Irgendwas haste falsch gemacht du Trottl").toString());
 	        }
         } else if(args.length < 3) {
-            event.reply("Brauchst schon 2 Optionen für nen Poll du Mongo");
+		    event.reply("Brauchst schon 2 Optionen für nen Poll du Mongo");
         } else {
             String title = args[0];
             String[] options = ArrayUtils.subarray(args, 1, args.length);
             event.getTextChannel().getId();
 	        Poll poll = pollService.create(title, event.getAuthor().getId(), event.getChannel().getId(), options);
 	        if(poll == null) {
-	        	event.reply("```\nGibt schon nen offenen Poll du Mongo\n```");
+	        	event.reply(MessageBuilder.build(MessageType.FORMATTED, "Gibt schon nen offenen Poll du Mongo").toString());
 	        } else {
 		        event.reply(pollToString(event, poll));
-		        event.reply("```\nPoll erstellt!\n```");
+		        event.reply(MessageBuilder.build(MessageType.FORMATTED, "Poll erstellt!").toString());
 	        }
         }
     }

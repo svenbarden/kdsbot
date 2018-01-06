@@ -3,11 +3,13 @@ package de.sba.discordbot.command;
 import com.jagrosh.jdautilities.commandclient.Command;
 import com.jagrosh.jdautilities.commandclient.CommandEvent;
 import de.sba.discordbot.model.GameLog;
+import de.sba.discordbot.model.GameLogFilter;
 import de.sba.discordbot.model.GameLogResult;
 import de.sba.discordbot.service.GameLogService;
 import de.sba.discordbot.util.DateTimeUtils;
 import de.sba.discordbot.util.MessageBuilder;
 import de.sba.discordbot.util.MessageType;
+import de.sba.discordbot.util.UserUtils;
 import net.dv8tion.jda.core.entities.Member;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.mutable.MutableLong;
@@ -79,7 +81,8 @@ public class GameLogCommand extends Command {
                     buildGameLogResultString(commandEvent, gameLogService.getToday(diff)).forEach(commandEvent::reply);
                     break;
                 case "all":
-                    buildGameLogResultString(commandEvent, gameLogService.getAll()).forEach(commandEvent::reply);
+                    GameLogFilter filter = GameLogFilter.build(args, 1, (userName) -> UserUtils.findUsers(commandEvent.getGuild(), userName));
+                    buildGameLogResultString(commandEvent, gameLogService.getAll(filter)).forEach(commandEvent::reply);
                     break;
                 case "topgame":
                     if(args.length >= 2) {

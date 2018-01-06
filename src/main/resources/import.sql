@@ -1,0 +1,1 @@
+UPDATE GameLog SET game = trim(game);

@@ -1,6 +1,7 @@
 package de.sba.discordbot.service;
 
 import de.sba.discordbot.model.GameLog;
+import de.sba.discordbot.model.GameLogFilter;
 import de.sba.discordbot.model.GameLogResult;
 import de.sba.discordbot.util.DateTimeUtils;
 import net.dv8tion.jda.core.JDA;
@@ -18,9 +19,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.persistence.Query;
 
@@ -147,8 +150,49 @@ public class GameLogService {
     }
 
 	@Transactional(readOnly = true)
+	public GameLogResult getAll(GameLogFilter filter) {
+		StringBuilder queryString = new StringBuilder("SELECT g FROM GameLog g WHERE 1 = 1");
+		Set<String> games = filter.getGames();
+		Map<String, Object> params = new HashMap<>();
+		if(!games.isEmpty()) {
+			queryString.append(" AND (");
+			int i = 0;
+			for (String game : games) {
+				LOGGER.trace("add game filter {}", game);
+				if(i > 0) {
+					queryString.append(" OR ");
+				}
+				queryString.append("lower(g.game) LIKE :game").append(i);
+				params.put("game" + i, "%" + game.toLowerCase() + "%");
+				i++;
+			}
+			queryString.append(")");
+		}
+		Set<String> users = filter.getUsers();
+		if(!users.isEmpty()) {
+			queryString.append(" AND (");
+			int i = 0;
+			for (String user : users) {
+				LOGGER.trace("add user filter {}", user);
+				if(i > 0) {
+					queryString.append(" OR ");
+				}
+				queryString.append("g.user = :user").append(i);
+				params.put("user" + i, user);
+				i++;
+			}
+			queryString.append(")");
+		}
+
+		queryString.append(" ORDER BY g.user ASC, g.game ASC");
+		Query query = persistenceService.getEntityManager().createQuery(queryString.toString());
+		params.forEach(query::setParameter);
+		return getGameLogResult(query, null, null);
+	}
+
+	@Transactional(readOnly = true)
 	public GameLogResult getAll() {
-		Query query = persistenceService.getEntityManager().createQuery("SELECT g FROM GameLog g ");
+		Query query = persistenceService.getEntityManager().createQuery("SELECT g FROM GameLog g ORDER BY g.user ASC, g.game ASC");
     	return getGameLogResult(query, null, null);
 	}
 

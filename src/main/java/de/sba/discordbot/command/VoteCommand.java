@@ -35,6 +35,7 @@ public class VoteCommand extends Command {
 			try {
 				pollService.vote(author, channel, Integer.valueOf(args) - 1);
 				event.replyFormatted(MessageBuilder.build(MessageType.FORMATTED, "Danke für deinen Vote %s!").toString(), event.getAuthor().getName());
+//				event.getMessage().delete().reason("Votes jucken keinen").complete();
 			} catch (IndexOutOfBoundsException e) {
 				event.replyFormatted(MessageBuilder.build(MessageType.FORMATTED, "Ziemlich unfähig %s, den Eintrag gibts nicht!").toString(), event.getAuthor().getName());
 			} catch (PollNotFoundException e) {
