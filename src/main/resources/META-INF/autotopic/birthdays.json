@@ -1,0 +1,68 @@
+[
+  {
+    "dayOfMonth" : "4",
+    "month" : "January",
+    "type": "birthday",
+    "topic" : "Happy Birthday, Benny!"
+  },
+  {
+    "dayOfMonth" : "20",
+    "month" : "January",
+    "type": "birthday",
+    "topic" : "Happy Birthday, Caro!"
+  },
+  {
+    "dayOfMonth" : "7",
+    "month" : "February",
+    "type": "birthday",
+    "topic" : "Happy Birthday, Sven!"
+  },
+  {
+    "dayOfMonth" : "15",
+    "month" : "March",
+    "type": "birthday",
+    "topic" : "Happy Birthday, Ralf!"
+  },
+  {
+    "dayOfMonth" : "1",
+    "month" : "April",
+    "type": "birthday",
+    "topic" : "Happy Birthday, Stan!"
+  },
+  {
+    "dayOfMonth" : "4",
+    "month" : "May",
+    "type": "birthday",
+    "topic" : "Happy Birthday, Kai!"
+  },
+  {
+    "dayOfMonth" : "30",
+    "month" : "June",
+    "type": "birthday",
+    "topic" : "Happy Birthday, Suu!"
+  },
+  {
+    "dayOfMonth" : "27",
+    "month" : "August",
+    "type": "birthday",
+    "topic" : "Happy Birthday, Felix!"
+  },
+  {
+    "dayOfMonth" : "2",
+    "month" : "September",
+    "type": "birthday",
+    "topic" : "Happy Birthday, Chris!"
+  },
+  {
+    "dayOfMonth" : "7",
+    "month" : "September",
+    "type": "birthday",
+    "topic" : "Happy Birthday, Envy!"
+  },
+  {
+    "dayOfMonth" : "12",
+    "month" : "September",
+    "type": "birthday",
+    "topic" : "Happy Birthday, Flo!"
+  }
+]
