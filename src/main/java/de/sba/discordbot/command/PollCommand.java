@@ -26,7 +26,7 @@ public class PollCommand extends Command {
     public PollCommand(PollService pollService) {
         this.pollService = pollService;
         name = "poll";
-        help = "Wer Hilfe braucht ist ein Trottl";
+        help = "Wer Hilfe braucht, ist ein Trottl!";
         arguments = "<Neues Topic>";
         guildOnly = true;
     }
@@ -64,7 +64,7 @@ public class PollCommand extends Command {
         if(StringUtils.isBlank(event.getArgs())) {
 	        Poll poll = pollService.findOpenByChannel(event.getTextChannel().getId());
 	        if (poll == null) {
-		        event.reply(MessageBuilder.build(MessageType.FORMATTED, "Gibt keine Umfrage").toString());
+		        event.reply(MessageBuilder.build(MessageType.FORMATTED, "Gibt keine Umfrage.").toString());
 	        } else {
 		        event.reply(pollToString(event, poll));
 	        }
@@ -74,20 +74,20 @@ public class PollCommand extends Command {
 	        	pollService.close(event.getTextChannel().getId());
 	        	event.reply(MessageBuilder.build(MessageType.FORMATTED, "Umfrage geschlossen").toString());
 	        } else {
-	        	event.reply(MessageBuilder.build(MessageType.FORMATTED, "Irgendwas haste falsch gemacht du Trottl").toString());
+	        	event.reply(MessageBuilder.build(MessageType.FORMATTED, "Irgendwas haste falsch gemacht, du Trottl!").toString());
 	        }
         } else if(args.length < 3) {
-		    event.reply("Brauchst schon 2 Optionen für nen Poll du Mongo");
+		    event.reply("Brauchst schon 2 Optionen für ne Umfrage, du Mongo!");
         } else {
             String title = args[0];
             String[] options = ArrayUtils.subarray(args, 1, args.length);
             event.getTextChannel().getId();
 	        Poll poll = pollService.create(title, event.getAuthor().getId(), event.getChannel().getId(), options);
 	        if(poll == null) {
-	        	event.reply(MessageBuilder.build(MessageType.FORMATTED, "Gibt schon nen offenen Poll du Mongo").toString());
+	        	event.reply(MessageBuilder.build(MessageType.FORMATTED, "Gibt schon ne offene Umfrage, du Mongo!").toString());
 	        } else {
 		        event.reply(pollToString(event, poll));
-		        event.reply(MessageBuilder.build(MessageType.FORMATTED, "Poll erstellt!").toString());
+		        event.reply(MessageBuilder.build(MessageType.FORMATTED, "Umfrage erstellt!").toString());
 	        }
         }
     }

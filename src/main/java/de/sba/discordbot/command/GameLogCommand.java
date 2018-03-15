@@ -26,7 +26,7 @@ public class GameLogCommand extends Command {
     public GameLogCommand(GameLogService gameLogService) {
         this.gameLogService = gameLogService;
         name = "game";
-        help = "Wer Hilfe braucht ist ein Trottl";
+        help = "Wer Hilfe braucht, ist ein Trottl!";
         arguments = "<Neues Topic>";
         guildOnly = true;
     }
@@ -56,7 +56,7 @@ public class GameLogCommand extends Command {
     @Override
     protected void execute(CommandEvent commandEvent) {
         if(commandEvent.getArgs().isEmpty()) {
-            commandEvent.reply(MessageBuilder.build(MessageType.FORMATTED, String.format("Musst schon Topic angeben um Topic zu setzen %s",
+            commandEvent.reply(MessageBuilder.build(MessageType.FORMATTED, String.format("Musst schon Topic angeben, um Topic zu setzen, %s.",
                                                                                          commandEvent.getAuthor().getName())).toString());
         } else {
             String[] args = commandEvent.getArgs().split("\\s+");
@@ -67,7 +67,7 @@ public class GameLogCommand extends Command {
                         if(gameLog != null) {
                             Member gameMember = commandEvent.getGuild().getMemberById(gameLog.getUser());
                             long since = System.currentTimeMillis() - gameLog.getStart().getTime();
-                            commandEvent.reply(String.format("%s süchtelt seit %s %s",
+                            commandEvent.reply(String.format("%s süchtelt seit %s %s.",
                                     gameMember.getEffectiveName(),
                                     millisToString(since), gameLog.getGame()));
                         }
@@ -94,7 +94,7 @@ public class GameLogCommand extends Command {
                     }
                     break;
                 default:
-                    commandEvent.reply(MessageBuilder.build(MessageType.FORMATTED, "Gibts nicht lowl").toString());
+                    commandEvent.reply(MessageBuilder.build(MessageType.FORMATTED, "Gibts nicht, lowl.").toString());
             }
         }
     }

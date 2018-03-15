@@ -19,7 +19,7 @@ public class VoteCommand extends Command {
 	public VoteCommand(PollService pollService) {
 		this.pollService = pollService;
 		name = "vote";
-		help = "Wer Hilfe braucht ist ein Trottl";
+		help = "Wer Hilfe braucht, ist ein Trottl";
 		arguments = "<Neues Topic>";
 		guildOnly = true;
 	}
@@ -28,13 +28,13 @@ public class VoteCommand extends Command {
 	protected void execute(CommandEvent event) {
 		String args = event.getArgs();
 		if(StringUtils.isBlank(args) || !NumberUtils.isCreatable(args)) {
-			event.reply(MessageBuilder.build(MessageType.FORMATTED, "Musst schon angeben für was du votest du Trottl!").toString());
+			event.reply(MessageBuilder.build(MessageType.FORMATTED, "Musst schon angeben für was du votest, du Trottl!").toString());
 		} else {
 			String channel = event.getTextChannel().getId();
 			String author = event.getAuthor().getId();
 			try {
 				pollService.vote(author, channel, Integer.valueOf(args) - 1);
-				event.replyFormatted(MessageBuilder.build(MessageType.FORMATTED, "Danke für deinen Vote %s!").toString(), event.getAuthor().getName());
+				event.replyFormatted(MessageBuilder.build(MessageType.FORMATTED, "Danke für deinen Vote, %s!").toString(), event.getAuthor().getName());
 //				event.getMessage().delete().reason("Votes jucken keinen").complete();
 			} catch (IndexOutOfBoundsException e) {
 				event.replyFormatted(MessageBuilder.build(MessageType.FORMATTED, "Ziemlich unfähig %s, den Eintrag gibts nicht!").toString(), event.getAuthor().getName());
