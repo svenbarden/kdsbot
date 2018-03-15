@@ -23,7 +23,7 @@ public class TopicCommand extends Command {
     public TopicCommand(TopicService topicService) {
         this.topicService = topicService;
         name = "topic";
-        help = "Wer Hilfe braucht ist ein Trottl";
+        help = "Wer Hilfe braucht, ist ein Trottl";
         arguments = "<Neues Topic>";
         guildOnly = true;
     }
@@ -47,7 +47,7 @@ public class TopicCommand extends Command {
     protected void execute(CommandEvent commandEvent) {
         LOGGER.debug("receive command args {}", commandEvent.getArgs());
         if(commandEvent.getArgs().isEmpty()) {
-            commandEvent.replyWarning(String.format("Musst schon Topic angeben um topic zu setzen %s", commandEvent.getAuthor().getName()));
+            commandEvent.replyWarning(String.format("Musst schon Topic angeben, um Topic zu setzen, %s!", commandEvent.getAuthor().getName()));
         } else {
             String[] args = commandEvent.getArgs().split("\\s+");
             String newTopic = null;
@@ -60,30 +60,30 @@ public class TopicCommand extends Command {
                     LOGGER.trace("execute auto");
                     newTopic = getAutoTopic();
                     if(newTopic == null || newTopic.length() == 0) {
-                        response = "Kein daily topic registriert";
+                        response = "Kein daily Topic registriert.";
                     } else {
-                        response = String.format("```\nDaily topic gesetzt: %s\n```", newTopic);
+                        response = String.format("```\nDaily topic gesetzt: %s.\n```", newTopic);
                     }
                     break;
                 case "register":
                     LOGGER.trace("execute register");
                     newTopic = StringUtils.arrayToDelimitedString(Arrays.copyOfRange(args, 1, args.length), " ");
                     if(register(newTopic)) {
-                        response = String.format("```\nDaily topic gesetzt und registriert: %s\n```", newTopic);
+                        response = String.format("```\nDaily Topic gesetzt und registriert: %s.\n```", newTopic);
                     } else {
-                        response = String.format("```\nDaily topic war schon registriert: %s\n```", newTopic);
+                        response = String.format("```\nDaily Topic war schon registriert: %s.\n```", newTopic);
                     }
                     break;
                 case "search":
                     LOGGER.trace("execute search");
                     if(args.length < 2) {
-                        response = String.format("```\nMusst schon Topic zum suchen angeben %s\n```", commandEvent.getAuthor().getName());
+                        response = String.format("```\nMusst schon Topic zum Suchen angeben, %s!\n```", commandEvent.getAuthor().getName());
                     } else {
                         String search = StringUtils.arrayToDelimitedString(Arrays.copyOfRange(args, 1, args.length), " ");
                         List<AutoTopic> topics = topicService.search(search);
                         StringBuilder result = new StringBuilder("```\n");
                         if(topics.isEmpty()) {
-                            result.append(String.format("Keine Topics für %s gefunden\n", search));
+                            result.append(String.format("Keine Topics für %s gefunden.\n", search));
                         } else {
                             topics.forEach(autoTopic -> {
                                 result.append(String.format("%02d.%02d.: %s\n", autoTopic.getDayOfMonth(), autoTopic.getMonth(), autoTopic.getTopic()));
@@ -97,11 +97,11 @@ public class TopicCommand extends Command {
                 case "set":
                     LOGGER.trace("execute set");
                     newTopic = StringUtils.arrayToDelimitedString(Arrays.copyOfRange(args, 1, args.length), " ");
-                    response = String.format("```\nTopic gesetzt! Gute Arbeit %s\n```", commandEvent.getAuthor().getName());
+                    response = String.format("```\nTopic gesetzt! Gute Arbeit, %s!\n```", commandEvent.getAuthor().getName());
                     break;
                 default:
                     newTopic = commandEvent.getArgs();
-                    response = String.format("```\nTopic gesetzt! Gute Arbeit %s\n```", commandEvent.getAuthor().getName());
+                    response = String.format("```\nTopic gesetzt! Gute Arbeit, %s!\n```", commandEvent.getAuthor().getName());
             }
             if(newTopic != null) {
                 commandEvent.getEvent().getTextChannel().getManager().setTopic(newTopic).complete();
