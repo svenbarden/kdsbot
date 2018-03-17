@@ -18,13 +18,14 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.Query;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import javax.persistence.Query;
 
 @Service
 public class TopicService implements ApplicationContextAware {
@@ -54,6 +55,14 @@ public class TopicService implements ApplicationContextAware {
         MONTH_MAP.put("Oktober", 10);
         MONTH_MAP.put("November", 11);
         MONTH_MAP.put("Dezember", 12);
+        MONTH_MAP.put("January", 1);
+        MONTH_MAP.put("February", 2);
+        MONTH_MAP.put("March", 3);
+        MONTH_MAP.put("May", 5);
+        MONTH_MAP.put("June", 6);
+        MONTH_MAP.put("July", 7);
+        MONTH_MAP.put("October", 10);
+        MONTH_MAP.put("December", 12);
     }
 
     private void importTopics(Resource resource) {
